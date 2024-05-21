@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-quarter is-flex is-flex-direction-column">
+                <figure class="image is-128x128 mb-2 is-unselectable" style="pointer-events: none; user-select: none">
+                    {% if user.avatar %}
+                        <img class="is-rounded" src="{{ url_for('static', filename='avatars/'+user.avatar) }}" alt="{{ user.username }}'s avatar">
+                    {% else %}
+                        <img class="is-rounded" src="{{ url_for('static', filename='avatars/empty_icon.png') }}" alt="No icon">
+                    {% endif %}
+                </figure>
+                <strong class="title">{{ user.username }}</strong>
+                <p class="is-size-5">Created at: {{ user.created.strftime('%Y-%m-%d') }}</p>
+            </div>
+            <div class="column is-four-fifths">
+                <h1 class="title is-size-3">{{ user.username }}'s posts</h1>
+                {% set posts = user.posts[::-1] %}
+                {% if posts %}
+                    {% from 'components/post/posts.html' import posts_render %}
+                    {{ posts_render(posts) }}
+                {% else %}
+                <h1 class="title is-size-5 has-text-grey is-unselectable">{{ user.username }} hasn't written anything yet</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
