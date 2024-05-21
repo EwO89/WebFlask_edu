@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 🥝Kiwi blog
 
 Welcome to the 🥝Kiwi blog project! This is a monolithic Flask-based blog system.
@@ -65,3 +66,6 @@ Feel free to contribute to this project by submitting bug reports, feature reque
 =======
 # WWWFlask
 >>>>>>> 8f32ac88a8947abbb479048c1d3fe323f6f4ffb7
+=======
+# WwWWFlask
+>>>>>>> c96dec1d91764b41a0135d1dc69f9878d054ad04
